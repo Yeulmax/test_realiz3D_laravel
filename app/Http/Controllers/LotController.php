@@ -16,11 +16,11 @@ class LotController extends Controller
         public function store(Request $request)
         {
             $lot = new Lot([
-                'name' => $request->input('name'),
-                'group_id' => $request->input('group_id')
+                'name'      => $request->input('name'),
+                'group_id'  => $request->input('group_id')
             ]);
-            $lot->save();
 
+            $lot->save();
             return response()->json('Lot créé !');
         }
 
