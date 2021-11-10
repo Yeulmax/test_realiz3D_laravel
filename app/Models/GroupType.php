@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GroupTypes extends Model
+class GroupType extends Model
 {
     use HasFactory;
+
+    prtotected $fillable = ['label']
 }

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Groups extends Model
+class Group extends Model
 {
     use HasFactory;
-    protected $fillable =[
-        'name'
-    ];
+
+    protected $fillable = ['name'];
+    protected $guarded = ['parent_group_id', 'group_type_id'];
 }
