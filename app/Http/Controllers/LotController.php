@@ -4,45 +4,69 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lot;
+use Validator;
 
 class LotController extends Controller
 {
-        public function index()
-        {
-            $lots = Lot::all()->toArray();
-            return array_reverse($lots);
+    public function index()
+    {
+        $lots = Lot::all()->toArray();
+        return array_reverse($lots);
+    }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+
+        $validator = Validator::make($input,[
+            'name' => 'required',
+            'group_id' => 'required | integer'
+        ]);
+
+        if($validator->fails()){
+            return response()->json($validator->errors(), 422);
         }
 
-        public function store(Request $request)
-        {
-            $lot = new Lot([
-                'name'      => $request->input('name'),
-                'group_id'  => $request->input('group_id')
-            ]);
+        Lot::create($input);
+        return response()->json('Lot créé !', 200);
+    }
 
-            $lot->save();
-            return response()->json('Lot créé !');
+    public function show($id)
+    {
+        $lot = Lot::find($id);
+
+        if (is_null($lot)){
+            return response()->json("Le lot n'existe pas", 404);
+        }
+        return response()->json($lot);
+    }
+
+    public function update($id, Request $request)
+    {
+        $input = $request->all();
+
+        $validator = Validator::make($input,[
+            'group_id' => 'integer'
+        ]);
+
+        if($validator->fails()){
+            return response()->json($validator->errors(), 422);
         }
 
-        public function show($id)
-        {
-            $lot = Lot::find($id);
-            return response()->json($lot);
+        $lot = Lot::find($id);
+        if (is_null($lot)){
+            return response()->json("Le lot n'existe pas", 404);
         }
 
-        public function update($id, Request $request)
-        {
-            $lot = Lot::find($id);
-            $lot->update($request->all());
+        $lot->update($input);
+        return response()->json('Lot modifié !', 200);
+    }
 
-            return response()->json('Lot modifié !');
-        }
+    public function destroy($id)
+    {
+        $lot = Lot::find($id);
+        $lot->delete();
 
-        public function destroy($id)
-        {
-            $lot = Lot::find($id);
-            $lot->delete();
-
-            return response()->json('Lot supprimé !');
-        }
+        return response()->json('Lot supprimé !');
+    }
 }
