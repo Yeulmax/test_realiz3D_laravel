@@ -9,5 +9,5 @@ class GroupType extends Model
 {
     use HasFactory;
 
-    prtotected $fillable = ['label']
+    protected $fillable = ['label'];
 }
