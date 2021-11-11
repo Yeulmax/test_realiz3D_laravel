@@ -21,6 +21,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+//Route::middleware('api')->get('/lots', [LotController::class, 'index']);
+
+//Route::resource('lots', LotController::class);
+
 Route::middleware('api')->group(function () {
-    Route::resource('products', ProductController::class);
+    Route::resource('lots', LotController::class);
+});
+
+Route::middleware('api')->group(function () {
+    Route::resource('groups', GroupController::class);
 });
