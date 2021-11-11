@@ -19,8 +19,8 @@ class LotController extends Controller
         $input = $request->all();
 
         $validator = Validator::make($input,[
-            'name' => 'required',
-            'group_id' => 'required | integer'
+            'name'      => 'required',
+            'group_id'  => 'required | integer | exists:groups,id'
         ]);
 
         if($validator->fails()){
@@ -46,7 +46,7 @@ class LotController extends Controller
         $input = $request->all();
 
         $validator = Validator::make($input,[
-            'group_id' => 'integer'
+            'group_id' => 'integer| exists:groups,id'
         ]);
 
         if($validator->fails()){
@@ -65,8 +65,12 @@ class LotController extends Controller
     public function destroy($id)
     {
         $lot = Lot::find($id);
-        $lot->delete();
 
+        if (is_null($lot)){
+            return response()->json("Le lot n'existe pas", 404);
+        }
+
+        $lot->delete();
         return response()->json('Lot supprimé !');
     }
 }

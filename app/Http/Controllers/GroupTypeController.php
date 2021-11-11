@@ -44,23 +44,25 @@ class GroupTypeController extends Controller
 
     public function update($id, Request $request)
     {
-        $input = $request->all();
-
         $groupType = GroupType::find($id);
 
         if (is_null($groupType)){
             return response()->json("Le type de groupe n'existe pas", 404);
         }
 
-        $groupType->update($input);
+        $groupType->update($request->all());
         return response()->json('Type de groupe modifié !');
     }
 
     public function destroy($id)
     {
         $groupType = GroupType::find($id);
-        $groupType->delete();
 
+        if (is_null($groupType)){
+            return response()->json("Le type de groupe n'existe pas", 404);
+        }
+
+        $groupType->delete();
         return response()->json('Type de groupe supprimé !');
     }
 }

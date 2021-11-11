@@ -34,6 +34,10 @@ Route::middleware('api')->group(function () {
     Route::resource('groupTypes', GroupTypeController::class);
 });
 
+Route::middleware('api')->group(function () {
+    Route::resource('groups', GroupController::class);
+});
+
 
 
 //Route::post('lots/{id}/', [LotController::class, 'update']);

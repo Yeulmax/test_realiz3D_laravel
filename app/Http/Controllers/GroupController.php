@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
+use Validator;
 
 class GroupController extends Controller
 {
@@ -15,35 +16,63 @@ class GroupController extends Controller
 
     public function store(Request $request)
     {
-        $group = new Group([
-            'name'              => $request->input('name'),
-            'parent_group_id'   => $request->input('parent_group_id'),
-            'group_type_id'     => $request->input('group_type_id')
+        $input = $request->all();
+
+        $validator = Validator::make($input,[
+            'name'              => 'required | string',
+            'group_type_id'     => 'required | integer | exists:group_types,id'
         ]);
 
-        $group->save();
+        if($validator->fails()){
+            return response()->json($validator->errors(), 422);
+        }
+
+        Group::create($input);
         return response()->json('Groupe créé !');
     }
 
     public function show($id)
     {
         $group = Group::find($id);
+
+        if (is_null($group)){
+            return response()->json("Le groupe n'existe pas", 404);
+        }
+
         return response()->json($group);
     }
 
     public function update($id, Request $request)
     {
-        $group = Group::find($id);
-        $group->update($request->all());
+        $input = $request->all();
 
+        $validator = Validator::make($input,[
+            'name'              => 'string',
+            'group_type_id'     => 'integer| exists:group_types,id'
+        ]);
+
+        if($validator->fails()){
+            return response()->json($validator->errors(), 422);
+        }
+
+        $group = Group::find($id);
+        if (is_null($group)){
+            return response()->json("Le groupe n'existe pas", 404);
+        }
+
+        $group->update($input);
         return response()->json('Groupe modifié !');
     }
 
     public function destroy($id)
     {
         $group = Group::find($id);
-        $group->delete();
 
+        if (is_null($group)){
+            return response()->json("Le groupe n'existe pas", 404);
+        }
+
+        $group->delete();
         return response()->json('Groupe supprimé !');
     }
 }

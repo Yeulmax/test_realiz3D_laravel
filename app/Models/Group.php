@@ -9,6 +9,5 @@ class Group extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
-    protected $guarded = ['parent_group_id', 'group_type_id'];
+    protected $fillable = ['name', 'parent_group_id', 'group_type_id'];
 }
