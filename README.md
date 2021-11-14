@@ -23,41 +23,35 @@
 
 ## Routes API
 ‼️  *Les paramètres sont passés via un multipart form*
-* #### /register : Inscription utilisateur
-  * **POST** http://api_template/api/register
-    * name
-    * email
-    * password
-    * confirm_password
+* #### /lots : Accés au lots
+  * **GET** .../api/lots  -> Renvoie la liste des lots
+  * **GET** .../api/lots/{id} -> Renvoie un lot spécifique
+  * **POST** .../api/lots -> Crée un lot
+    * name: String
+    * group_id: Int (doit exister dans la table 'groups')
+  * **PATCH** .../api/lots/{id} -> Modifie un lot
+    * name: String
+    * group_id: Int
+  * **DELETE** .../api/lots/{id} -> Supprime un lot
 
-* #### /login : Connexion utilisateur
-  * **POST** http://api_template/api/login
-    * email
-    * password
-    
-‼️  *Les autres routes nécessitent une authentification,
-utiliser le bearer token fournit lors de l'appel à /login ou /register*
+* #### /groupTypes : Accés aux types de groupes
+  * **GET** .../api/groupTypes  -> Renvoie la liste des types
+  * **GET** .../api/groupTypes/{id} -> Renvoie un type spécifique
+  * **POST** .../api/groupTypes -> Crée un type
+    * label: String
+  * **PATCH** .../api/groupTypes/{id} -> Modifie un type
+    * label: String
+  * **DELETE** .../api/groupTypes/{id} -> Supprime un type
 
-* #### /posts : Création d'un post
-  * **POST** http://api_template/api/posts
-    * title
-    * content
-    * is_public [0-1]
-
-* #### /posts/{id} : Modification d'un post
-  * **PATCH** http://api_template/api/posts{id}
-    * title
-    * content
-    * is_public [0-1]
-
-* #### /user : Retourne l'utilisateur authentifié
-  * **GET** http://api_template/api/user
-
-* #### /my_posts : Retourne les posts crée par l'utilisateur courant
-  * **GET** http://api_template/api/my_posts
-
-* #### /postsByUserId/{id} : Retourne les posts d'un utilisateur spécifique
-  * **GET** http://api_template/api/posts/user/{id}
-
-* #### /posts/title/{term} : Recherche sur les titres, ne retourne que les posts publiés
-  * **GET** http://api_template/api/posts/title/{term}
+* #### /groups : Accés aux groupes
+  * **GET** .../api/groups  -> Renvoie la liste des groupes
+  * **GET** .../api/groups/{id} -> Renvoie un groupe spécifique
+  * **POST** .../api/groups -> Crée un groupe
+    * name: String
+    * parent_group_id: Int (doit exister dans la table 'groups')
+    * group_type_id: Int (doit exister dans la table 'group_types')
+  * **PATCH** .../api/groups/{id} -> Modifie un groupe
+    * name: String
+    * parent_group_id: Int (doit exister dans la table 'groups')
+    * group_type_id: Int (doit exister dans la table 'group_types')
+  * **DELETE** .../api/groups/{id} -> Supprime un lot
