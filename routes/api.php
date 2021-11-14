@@ -17,19 +17,6 @@ use App\Http\Controllers\GroupTypeController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
-//Route::middleware('api')->get('/lots', [LotController::class, 'index']);
-
-//Route::resource('lots', LotController::class);
-
-Route::middleware('api')->group(function () {
-    Route::resource('lots', LotController::class);
-});
-
 Route::middleware('api')->group(function () {
     Route::resource('groupTypes', GroupTypeController::class);
 });
@@ -38,18 +25,6 @@ Route::middleware('api')->group(function () {
     Route::resource('groups', GroupController::class);
 });
 
-
-
-//Route::post('lots/{id}/', [LotController::class, 'update']);
-
-/*
 Route::middleware('api')->group(function () {
-    Route::resource('groups', GroupController::class);
+    Route::resource('lots', LotController::class);
 });
-
-/*
-Route::resources([
-    'lots' => LotController::class,
-    'groups' => GroupController::class
-]);
-*/
