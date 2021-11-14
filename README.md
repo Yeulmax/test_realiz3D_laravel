@@ -8,6 +8,7 @@
 
 ## Configuration Laragon / WAMP / XAMP
 1. Création d'une BDD MySQL **'db_api'** -> [username: root, password: ' ']
+2. ‼️ L'extension **'pdo_mysql'** doit être activée dans le fichier php.ini
 
 ## Installation
 1. `cd .../www`
@@ -18,7 +19,6 @@
 6. Dans le fichier .env -> `DB_DATABASE=db_api`
 7. `php artisan key:generate`
 8. `php artisan migrate --seed`
-
 
 
 ## Routes API
