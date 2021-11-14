@@ -8,7 +8,7 @@
 
 ## Configuration Laragon / WAMP / XAMP
 1. Création d'une BDD MySQL **'db_api'** -> [username: root, password: ' ']
-2. ‼️ L'extension **'pdo_mysql'** doit être activée dans le fichier php.ini
+2. ‼️ L'extension **'pdo_mysql'** et **'fileinfo'** doit être activée dans le fichier php.ini
 
 ## Installation
 1. `cd .../www`
