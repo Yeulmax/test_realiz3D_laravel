@@ -6,17 +6,20 @@
 * Vérification du respect de l'intégrité du modèle de données lors des modifications<br> (relations récursives, existence de la clef étrangère,etc)
 * Vérification de la conformité des données envoyés lors des requêtes POST/PUT
 
-## Installation
-1. `git clone https://github.com/Yeulmax/API_Template.git`
-2. `composer update`
-3. `composer install`
-4. `copy|cp .env.example .env`
-5. `php artisan key:generate`
-6. `php artisan migrate --seed`
+## Configuration Laragon / WAMP / XAMP
+1. Création d'une BDD MySQL **'db_api'** -> [username: root, password: ' ']
 
-## Configuration Laragon
-1. Sélectionner le dossier 'public' du projet comme DocumentRoot
-2. Création d'une BDD MySQL **'api_template'** ▶️ (username: root, password: ' ')
+## Installation
+1. `cd .../www`
+2. `https://github.com/Yeulmax/test_realiz3D_laravel.git`
+3. `composer update`
+4. `composer install`
+5. `copy|cp .env.example .env`
+6. Dans le fichier .env -> `DB_DATABASE=db_api`
+7. `php artisan key:generate`
+8. `php artisan migrate --seed`
+
+
 
 ## Routes API
 ‼️  *Les paramètres sont passés via un multipart form*
