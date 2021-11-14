@@ -43,7 +43,7 @@
     * label: String
   * **DELETE** .../api/groupTypes/{id} -> Supprime un type
 
-* #### /groups : Accés aux groupes
+* #### /groups : Accès aux groupes
   * **GET** .../api/groups  -> Renvoie la liste des groupes
   * **GET** .../api/groups/{id} -> Renvoie un groupe spécifique
   * **POST** .../api/groups -> Crée un groupe
