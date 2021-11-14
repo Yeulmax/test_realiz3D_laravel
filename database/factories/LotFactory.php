@@ -11,7 +11,7 @@ class LotFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->regexify('[A-Z]{1}[0-9]{3}'),

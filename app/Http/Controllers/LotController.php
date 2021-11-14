@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Lot;
 use Validator;
 
 class LotController extends Controller
 {
-    public function index()
+    public function index(): array
     {
         $lots = Lot::all()->toArray();
         return array_reverse($lots);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $input = $request->all();
 
@@ -31,7 +32,7 @@ class LotController extends Controller
         return response()->json('Lot créé !', 200);
     }
 
-    public function show($id)
+    public function show($id): JsonResponse
     {
         $lot = Lot::find($id);
 
@@ -41,7 +42,7 @@ class LotController extends Controller
         return response()->json($lot);
     }
 
-    public function update($id, Request $request)
+    public function update($id, Request $request): JsonResponse
     {
         $input = $request->all();
 
@@ -62,7 +63,7 @@ class LotController extends Controller
         return response()->json('Lot modifié !', 200);
     }
 
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
         $lot = Lot::find($id);
 

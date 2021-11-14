@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Group;
 use Validator;
 
 class GroupController extends Controller
 {
-    public function index()
+    public function index(): array
     {
         $groups = Group::all()->toArray();
         return array_reverse($groups);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $input = $request->all();
 
@@ -31,7 +32,7 @@ class GroupController extends Controller
         return response()->json('Groupe créé !');
     }
 
-    public function show($id)
+    public function show($id): JsonResponse
     {
         $group = Group::find($id);
 
@@ -42,7 +43,7 @@ class GroupController extends Controller
         return response()->json($group);
     }
 
-    public function update($id, Request $request)
+    public function update($id, Request $request): JsonResponse
     {
         $input = $request->all();
 
@@ -64,7 +65,7 @@ class GroupController extends Controller
         return response()->json('Groupe modifié !');
     }
 
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
         $group = Group::find($id);
 

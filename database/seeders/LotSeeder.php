@@ -14,9 +14,6 @@ class LotSeeder extends Seeder
      */
     public function run()
     {
-        Lot::create([
-            'name' => '101',
-            'group_id' => 6
-        ]);
+
     }
 }

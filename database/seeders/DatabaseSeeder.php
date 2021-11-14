@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Lot;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([GroupTypeSeeder::class]);
         $this->call([GroupSeeder::class]);
-        \App\Models\Lot::factory(20)->create();
+        Lot::factory(30)->create();
     }
 }

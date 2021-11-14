@@ -54,6 +54,11 @@ class GroupSeeder extends Seeder
             'name' => 'Programme B1_001',
             'parent_group_id' => 5,
             'group_type_id' => 3
+        ],
+        [
+        'name' => 'Région A3 (Sans lots)',
+            'parent_group_id' => 1,
+            'group_type_id' => 2
         ]];
 
         foreach($groups as $group){

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\GroupType;
 use Validator;
 
 class GroupTypeController extends Controller
 {
-    public function index()
+    public function index(): array
     {
         $groupTypes = GroupType::all()->toArray();
         return array_reverse($groupTypes);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
 
         $input = $request->all();
@@ -31,7 +32,7 @@ class GroupTypeController extends Controller
         return response()->json('Type de groupe créé !');
     }
 
-    public function show($id)
+    public function show($id): JsonResponse
     {
         $groupType = GroupType::find($id);
 
@@ -42,7 +43,7 @@ class GroupTypeController extends Controller
         return response()->json($groupType);
     }
 
-    public function update($id, Request $request)
+    public function update($id, Request $request): JsonResponse
     {
         $groupType = GroupType::find($id);
 
@@ -54,7 +55,7 @@ class GroupTypeController extends Controller
         return response()->json('Type de groupe modifié !');
     }
 
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
         $groupType = GroupType::find($id);
 
