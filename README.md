@@ -12,7 +12,7 @@
 
 ## Installation
 1. `cd .../www`
-2. `https://github.com/Yeulmax/test_realiz3D_laravel.git`
+2. `git clone https://github.com/Yeulmax/test_realiz3D_laravel.git`
 3. `composer update`
 4. `composer install`
 5. `copy|cp .env.example .env`
