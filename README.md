@@ -1,8 +1,10 @@
-# API_Template
-## Template d'API Laravel avec authentification via Sanctum 
-* Token Authentification pour la partie API
-* SPA Authentification pour la partie Front (au travers d'un module Vue.JS)
-  * L'utilisateur peut créer un compte via la partie front et l'utiliser sur l'API
+# API_Laravel
+* Modèles configurés avec clefs étrangères et relations récursives
+* Seeder pour les groupes et type de groupe
+* Factory via regex pour les lots
+* Controllers complet pour CRUD
+* Vérification du respect de l'intégrité du modèle de données lors des modifications<br> (relations récursives, existence de la clef étrangère,etc)
+* Vérification de la conformité des données envoyés lors des requêtes POST/PUT
 
 ## Installation
 1. `git clone https://github.com/Yeulmax/API_Template.git`
