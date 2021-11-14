@@ -13,12 +13,13 @@
 ## Installation
 1. `cd .../www`
 2. `git clone https://github.com/Yeulmax/test_realiz3D_laravel.git`
-3. `composer update`
-4. `composer install`
-5. `copy .env.example .env`
-6. Dans le fichier .env -> `DB_DATABASE=db_api`
-7. `php artisan key:generate`
-8. `php artisan migrate --seed`
+3. `cd test_realiz3D_laravel`
+4. `composer update`
+5. `composer install`
+6. `copy .env.example .env`
+7. Dans le fichier .env -> `DB_DATABASE=db_api`
+8. `php artisan key:generate`
+9. `php artisan migrate --seed`
 
 
 ## Routes API
