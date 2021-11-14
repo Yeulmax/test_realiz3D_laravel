@@ -1,10 +1,10 @@
 # API_Laravel
 * Modèles configurés avec clefs étrangères et relations récursives
-* Seeder pour les groupes et type de groupe
+* Seeder pour les groupes et types de groupe
 * Factory via regex pour les lots
 * Controllers complet pour CRUD
 * Vérification du respect de l'intégrité du modèle de données lors des modifications<br> (relations récursives, existence de la clef étrangère,etc)
-* Vérification de la conformité des données envoyés lors des requêtes POST/PUT
+* Vérification de la conformité des données envoyées lors des requêtes POST/PUT
 
 ## Configuration Laragon / WAMP / XAMP
 1. Création d'une BDD MySQL **'db_api'** -> [username: root, password: ' ']
