@@ -6,6 +6,9 @@
 * Vérification du respect de l'intégrité du modèle de données lors des modifications<br> (relations récursives, existence de la clef étrangère,etc)
 * Vérification de la conformité des données envoyées lors des requêtes POST/PUT
 
+## Schéma conceptuel de la base de données
+(/ressources/img/BDD.png "BDD")
+
 ## Configuration Laragon / WAMP / XAMP
 1. Création d'une BDD MySQL **'db_api'** -> [username: root, password: ' ']
 2. ‼️ L'extension **'pdo_mysql'** et **'fileinfo'** doit être activée dans le fichier php.ini
