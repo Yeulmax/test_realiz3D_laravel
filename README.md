@@ -7,9 +7,9 @@
 * Vérification de la conformité des données envoyées lors des requêtes POST/PUT
 
 ## Schéma conceptuel de la base de données
-(/ressources/img/BDD.png "BDD")
+![](resources/img/BDD.png)
 
-## Configuration Laragon / WAMP / XAMP
+## Configuration Laragon / WAMP / XAMP  
 1. Création d'une BDD MySQL **'db_api'** -> [username: root, password: ' ']
 2. ‼️ L'extension **'pdo_mysql'** et **'fileinfo'** doit être activée dans le fichier php.ini
 
