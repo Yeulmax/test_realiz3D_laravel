@@ -8,7 +8,7 @@
 
 ## Schéma conceptuel de la base de données
 ![](resources/img/BDD.png)
-* Dans la table « groups », le champ « parent_group_id » comporte une clé étrangère vers le champ « id » de la table « groups ». Il s'agit d'une relation recursive.
+* Dans la table « groups », le champ « parent_group_id » comporte une clé étrangère vers le champ « id » de la table « groups ». Il s'agit d'une relation récursive.
 
 ## Configuration Laragon / WAMP / XAMP
 1. Création d'une BDD MySQL **'db_api'** -> [username: root, password: ' ']
